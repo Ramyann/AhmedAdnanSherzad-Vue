@@ -14,7 +14,7 @@ export const setupRouterGuards = (router: Router): void => {
   router.beforeEach(
     (
       to: RouteLocationNormalized,
-      from: RouteLocationNormalized,
+      _from: RouteLocationNormalized,
       next: NavigationGuardNext,
     ) => {
       // Update document title
@@ -117,7 +117,7 @@ const trackPageView = (route: RouteLocationNormalized) => {
 /** Role-based access guard */
 export const requiresRole = (requiredRoles: string[]) => {
   return (
-    to: RouteLocationNormalized,
+    _to: RouteLocationNormalized,
     _from: RouteLocationNormalized,
     next: NavigationGuardNext,
   ) => {
@@ -132,7 +132,7 @@ export const requiresRole = (requiredRoles: string[]) => {
 /** Profile completion guard */
 export const requiresCompleteProfile = () => {
   return (
-    to: RouteLocationNormalized,
+    _to: RouteLocationNormalized,
     _from: RouteLocationNormalized,
     next: NavigationGuardNext,
   ) => {
