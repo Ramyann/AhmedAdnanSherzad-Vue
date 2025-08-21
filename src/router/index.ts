@@ -60,7 +60,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           title: "SecondHand - Buy & Sell Second Hand Items",
         },
-        beforeEnter: async (to, from, next) => {
+        beforeEnter: async (to, _from, next) => {
           try {
             const products = await fetchProducts();
             const categories = await fetchCategories();
@@ -179,7 +179,7 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;
     else if (to.hash) {
       return {

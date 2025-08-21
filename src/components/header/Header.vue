@@ -29,10 +29,10 @@ const user = {
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?...",
 };
 
-function toggleMobileMenu() {
-  showMobileMenu.value = !showMobileMenu.value;
-  if (showMobileMenu.value) showLanguageMenu.value = false;
-}
+// function toggleMobileMenu() {
+//   showMobileMenu.value = !showMobileMenu.value;
+//   if (showMobileMenu.value) showLanguageMenu.value = false;
+// }
 
 function toggleLanguageMenu() {
   showLanguageMenu.value = !showLanguageMenu.value;
@@ -52,7 +52,7 @@ function setActiveItem(itemName: string) {
 onMounted(() => {
   document.addEventListener("click", (e) => {
     const header = document.querySelector(".your-header-class"); // change to your header root
-    if (header && !header.contains(e.target)) {
+    if (header && !header.contains(e.target as HTMLElement)) {
       showLanguageMenu.value = false;
       showMobileMenu.value = false;
     }
@@ -64,20 +64,17 @@ onMounted(() => {
   <header>
     <div class="mx-auto px-4 sm:px-6 lg:px-8 ">
       <div class="flex h-16 items-center justify-between">
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center gap-x-4">
           <Menu />
 
-          <div class="flex items-center space-x-2">
-            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-500">
-              <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-              </svg>
-            </div>
-            <div>
-              <h1 class="text-xl font-bold text-gray-900">SECONDHAND</h1>
-              <p class="-mt-1 text-xs text-gray-500">OFFICIAL</p>
-            </div>
+          <svg class="h-6 w-6 rounded-lg bg-primary text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+          </svg>
+
+          <div>
+            <h1 class="text-xl font-bold text-gray-900">SECONDHAND</h1>
+            <p class="-mt-1 text-xs text-gray-500">OFFICIAL</p>
           </div>
         </div>
 
