@@ -11,6 +11,10 @@ declare module "*.vue" {
   export default component;
 }
 
+declare module "vue" {
+  export * from "@vue/runtime-dom";
+}
+
 declare module "*.svg";
 declare module "lucide-vue-next";
 
