@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap");
+
+:root{
+  --primary: linear-gradient(224.27deg, #07A996 0%, #14A0AF 98.77%);
+  --gray: #E9EEED;
+}
+
+@theme {
+  --color-primary: oklch(0.84 0.18 117.33);
+  --font-oswald: "Oswald", sans-serif;
+  --spacing: 0.25rem;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 22px;
+  --text-xl: 28px;
+  --text-body: 16px;
+  --text-heading: 32px;
+
+  --bg-gray-500: #E9EEED;
+}
