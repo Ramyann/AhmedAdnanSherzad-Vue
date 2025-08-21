@@ -1,65 +1,3 @@
-<script setup lang="ts">
-import { ref, onMounted } from "vue";
-import Menu from "@/assets/icons/Menu.svg";
-import Cart from "@/assets/icons/Cart.svg";
-import { useCartStore } from "@/stores/cartStore";
-
-const cartStore = useCartStore();
-
-const showMobileMenu = ref(false);
-const showLanguageMenu = ref(false);
-const activeItem = ref("How It Works?");
-const selectedLanguage = ref("EN");
-
-const navigationItems = [
-  { name: "How It Works?" },
-  { name: "Help & Support" },
-];
-
-const languages = [
-  { code: "EN", name: "English" },
-  { code: "AR", name: "Arabic" },
-  { code: "FR", name: "French" },
-];
-
-const user = {
-  name: "M. Khalid Saied",
-  status: "Show Profile",
-  avatar:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?...",
-};
-
-// function toggleMobileMenu() {
-//   showMobileMenu.value = !showMobileMenu.value;
-//   if (showMobileMenu.value) showLanguageMenu.value = false;
-// }
-
-function toggleLanguageMenu() {
-  showLanguageMenu.value = !showLanguageMenu.value;
-  if (showLanguageMenu.value) showMobileMenu.value = false;
-}
-
-function selectLanguage(language: { code: string; }) {
-  selectedLanguage.value = language.code;
-  showLanguageMenu.value = false;
-}
-
-function setActiveItem(itemName: string) {
-  activeItem.value = itemName;
-  showMobileMenu.value = false;
-}
-
-onMounted(() => {
-  document.addEventListener("click", (e) => {
-    const header = document.querySelector(".your-header-class"); // change to your header root
-    if (header && !header.contains(e.target as HTMLElement)) {
-      showLanguageMenu.value = false;
-      showMobileMenu.value = false;
-    }
-  });
-});
-</script>
-
 <template>
   <header>
     <div class="mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -128,6 +66,69 @@ onMounted(() => {
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+import Menu from "@/assets/icons/Menu.svg";
+import Cart from "@/assets/icons/Cart.svg";
+import { useCartStore } from "@/stores/cartStore";
+import { ref, onMounted } from "vue";
+
+const cartStore = useCartStore();
+
+const showMobileMenu = ref(false);
+const showLanguageMenu = ref(false);
+const activeItem = ref("How It Works?");
+const selectedLanguage = ref("EN");
+
+const navigationItems = [
+  { name: "How It Works?" },
+  { name: "Help & Support" },
+];
+
+const languages = [
+  { code: "EN", name: "English" },
+  { code: "AR", name: "Arabic" },
+  { code: "FR", name: "French" },
+];
+
+const user = {
+  name: "M. Khalid Saied",
+  status: "Show Profile",
+  avatar:
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?...",
+};
+
+// function toggleMobileMenu() {
+//   showMobileMenu.value = !showMobileMenu.value;
+//   if (showMobileMenu.value) showLanguageMenu.value = false;
+// }
+
+function toggleLanguageMenu() {
+  showLanguageMenu.value = !showLanguageMenu.value;
+  if (showLanguageMenu.value) showMobileMenu.value = false;
+}
+
+function selectLanguage(language: { code: string; }) {
+  selectedLanguage.value = language.code;
+  showLanguageMenu.value = false;
+}
+
+function setActiveItem(itemName: string) {
+  activeItem.value = itemName;
+  showMobileMenu.value = false;
+}
+
+onMounted(() => {
+  document.addEventListener("click", (e) => {
+    const header = document.querySelector(".your-header-class"); // change to your header root
+    if (header && !header.contains(e.target as HTMLElement)) {
+      showLanguageMenu.value = false;
+      showMobileMenu.value = false;
+    }
+  });
+});
+</script>
+
 
 <style scoped>
 .slide-enter-active,
